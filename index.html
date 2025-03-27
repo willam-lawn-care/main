@@ -12,7 +12,7 @@
             padding: 0;
             color: #333;
             background-color: #f5f5f5;
-            scroll-behavior: smooth; /* Added smooth scrolling */
+            scroll-behavior: smooth;
         }
         
         header {
@@ -48,7 +48,7 @@
         }
         
         nav ul li {
-            margin: 0 15px;
+            margin: 0 10px;
         }
         
         nav ul li a {
@@ -58,10 +58,24 @@
             white-space: nowrap;
             padding: 5px 0;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         nav ul li a:hover {
             border-bottom: 2px solid white;
+        }
+        
+        .review-link {
+            background-color: #ffc107;
+            color: #1a5a2c !important;
+            padding: 5px 10px !important;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        
+        .review-link:hover {
+            background-color: #ffca28;
+            border-bottom: none !important;
         }
         
         .container {
@@ -116,7 +130,11 @@
                 flex-basis: 100%;
             }
             nav ul li {
-                margin: 5px 10px;
+                margin: 5px;
+            }
+            .review-link {
+                margin-left: 0;
+                margin-top: 5px;
             }
         }
     </style>
@@ -133,6 +151,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#team">Our Team</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe8rkZ3-3DXxb7nE7TKdJg2i6BN84DxO4eqVdKEN4WwvNv61w/viewform?usp=sharing" class="review-link" target="_blank">Leave a Review</a></li>
         </ul>
     </nav>
     
@@ -179,9 +198,9 @@
         </section>
         
         <section id="contact">
-            <h1>Contact Us</h1>
-            <h3>Ready to transform your lawn? Contact today for a good priced lawn mowin'!</h3>
-            <h2>Mom's Phone: (920) 979-0109</h2>
+            <h2>Contact Us</h2>
+            <p>Ready to transform your lawn? Contact today for a good priced lawn mowin'!</p>
+            <p>Mom's Phone: (920) 979-0109</p>
         </section>
     </div>
     
