@@ -12,6 +12,7 @@
             padding: 0;
             color: #333;
             background-color: #f5f5f5;
+            scroll-behavior: smooth; /* Added smooth scrolling */
         }
         
         header {
@@ -19,7 +20,7 @@
             color: white;
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 4px 6px #1a5a2c; /* Green header shadow */
+            box-shadow: 0 4px 6px #1a5a2c;
         }
         
         .logo {
@@ -31,7 +32,10 @@
         nav {
             background-color: #1a5a2c;
             padding: 10px 0;
-            box-shadow: 0 4px 6px #2a7f3f; /* Green nav shadow */
+            box-shadow: 0 4px 6px #2a7f3f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         nav ul {
@@ -40,6 +44,7 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         nav ul li {
@@ -50,6 +55,13 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            white-space: nowrap;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            border-bottom: 2px solid white;
         }
         
         .container {
@@ -57,7 +69,7 @@
             margin: 20px auto;
             background-color: white;
             padding: 20px;
-            box-shadow: 0 0 15px #2a7f3f; /* Green container shadow */
+            box-shadow: 0 0 15px #2a7f3f;
         }
         
         .hero {
@@ -67,17 +79,7 @@
             background-size: cover;
             color: white;
             margin-bottom: 30px;
-            box-shadow: inset 0 0 20px #1a5a2c; /* Green inner glow */
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #2a7f3f;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            margin-top: 20px;
-            box-shadow: 0 4px 0 #1a5a2c; /* Green button shadow */
+            box-shadow: inset 0 0 20px #1a5a2c;
         }
         
         .services {
@@ -92,7 +94,12 @@
             padding: 15px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
-            box-shadow: 0 4px 8px #2a7f3f; /* Green service box shadow */
+            box-shadow: 0 4px 8px #2a7f3f;
+            transition: transform 0.3s ease;
+        }
+        
+        .service:hover {
+            transform: translateY(-5px);
         }
         
         footer {
@@ -101,12 +108,15 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 20px;
-            box-shadow: 0 -4px 10px #2a7f3f; /* Green footer shadow */
+            box-shadow: 0 -4px 10px #2a7f3f;
         }
         
         @media (max-width: 768px) {
             .service {
                 flex-basis: 100%;
+            }
+            nav ul li {
+                margin: 5px 10px;
             }
         }
     </style>
@@ -114,7 +124,6 @@
 <body>
     <header>
         <div class="logo">Willam Lawn Care</div>
-        <div></div></div>
     </header>
     
     <nav>
@@ -122,6 +131,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#team">Our Team</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -130,7 +140,7 @@
         <section id="home" class="hero">
             <h1>Your Beautiful Lawn Starts Here</h1>
             <p>Professional lawn care services tailored to your needs</p>
-            </section>
+        </section>
         
         <section id="services">
             <h2>Our Services</h2>
@@ -144,31 +154,34 @@
                     <p>Spring and fall cleanup services to prepare your lawn for the changing seasons.</p>
                 </div>
                 <div class="service">
-                  <h3>Moving large things or quanteties of items</h3>
-                  <p>Movement of large items or large quanteties can be hard, but we can certaniley help!</p>
+                  <h3>Moving large things or quantities of items</h3>
+                  <p>Movement of large items or large quantities can be hard, but we can certainly help!</p>
+                </div>
+                <div class="service">
+                  <h3>Snow Shoveling</h3>
+                  <p>When winter comes, it can be hard to back out of your driveway in the snow-filled Wisconsin area. We can make your driveway look like spring and summer!</p>
                 </div>
             </div>
         </section>
         
         <section id="about">
             <h2>About Willam Lawn Care</h2>
-            <p>Willam Lawn Care consists of a few kids, just trying to make money with today. We're ready to tackle problems with our amazing team of individuals.</p>
-            </section>
+            <p>Willam Lawn Care consists of a few kids, just trying to make money today. We're ready to tackle problems with our amazing team of individuals.</p>
+        </section>
+        
+        <section id="team">
+            <h2>Our Team</h2>
+            <h4>Willam - main man of the work, does all the physical labor including our services.</h4>
+            <h3> </h3>
+            <h4>Zachary - website designer, computer guy, does the behind the scenes work.</h4>
+            <h3> </h3>
+            <h4>Lily - the swiss army knife of the team, can do MANY different needed things including graphic designing, money handling, and planning.</h4>
+        </section>
         
         <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Ready to transform your lawn? Contact today for a good priced lawn mowin'!</p>
-            <p>Mom's Phone: (920) 979-0109</p>
-        </section>
-        <br><br>
-        <section id="about">
-          <h2>Our Team</h2>
-          <h4>Willam - main man of the work, does all the physical labor including our services.</h4>
-          <h3> </h3>
-          <h4>Zachary - website designer, computer guy, does the behind the scenes work.</h4>
-          <h3> </h3>
-          <h4>Lily - the swiss army knife of the team, can do MANY different needed things including graphic designing, money handling, and planning.</h4>
-          
+            <h1>Contact Us</h1>
+            <h3>Ready to transform your lawn? Contact today for a good priced lawn mowin'!</h3>
+            <h2>Mom's Phone: (920) 979-0109</h2>
         </section>
     </div>
     
