@@ -80,15 +80,21 @@
         
         .container {
             width: 80%;
+            max-width: 1200px;
             margin: 20px auto;
             background-color: white;
             padding: 20px;
             box-shadow: 0 0 15px #2a7f3f;
         }
         
+        section {
+            padding: 40px 0;
+            scroll-margin-top: 80px;
+        }
+        
         .hero {
             text-align: center;
-            padding: 40px 0;
+            padding: 60px 0;
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('lawn-care.jpg');
             background-size: cover;
             color: white;
@@ -100,12 +106,12 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            gap: 20px;
         }
         
         .service {
-            flex-basis: 30%;
-            margin-bottom: 20px;
-            padding: 15px;
+            flex: 1 1 300px;
+            padding: 20px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             box-shadow: 0 4px 8px #2a7f3f;
@@ -114,6 +120,22 @@
         
         .service:hover {
             transform: translateY(-5px);
+        }
+        
+        .pricing {
+            background-color: #e8f5e9;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid #2a7f3f;
+            box-shadow: 0 4px 8px rgba(42, 127, 63, 0.2);
+            text-align: center;
+        }
+        
+        .price-tag {
+            font-size: 1.8em;
+            color: #2a7f3f;
+            font-weight: bold;
+            margin: 10px 0;
         }
         
         footer {
@@ -126,15 +148,26 @@
         }
         
         @media (max-width: 768px) {
-            .service {
-                flex-basis: 100%;
+            .container {
+                width: 95%;
+                padding: 15px;
             }
+            
             nav ul li {
                 margin: 5px;
             }
+            
             .review-link {
                 margin-left: 0;
                 margin-top: 5px;
+            }
+            
+            section {
+                padding: 30px 0;
+            }
+            
+            .hero {
+                padding: 40px 0;
             }
         }
     </style>
@@ -148,6 +181,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#team">Our Team</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -183,6 +217,13 @@
             </div>
         </section>
         
+        <section id="pricing" class="pricing">
+            <h2>Our Pricing</h2>
+            <p>Simple and affordable - quality service doesn't have to break the bank!</p>
+            <div class="price-tag">Starting at just $20 per lawn</div>
+            <p><small>(Final price depends on lawn size and specific services needed)</small></p>
+        </section>
+        
         <section id="about">
             <h2>About Willam Lawn Care</h2>
             <p>Willam Lawn Care consists of a few kids, just trying to make money today. We're ready to tackle problems with our amazing team of individuals.</p>
@@ -207,5 +248,29 @@
     <footer>
         <p>Willam Lawn Care</p>
     </footer>
+
+    <script>
+        // Smooth scroll with offset for sticky nav
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('target') !== '_blank') {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
