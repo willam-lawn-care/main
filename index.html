@@ -21,12 +21,47 @@
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 4px 6px #1a5a2c;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo-img {
+            height: 80px;
+            width: auto;
+            opacity: 0;
+            transform: translateX(0);
+        }
+        
+        .logo-img.left {
+            animation: slideInLeft 1.5s ease-out 0.6s forwards;
+        }
+        
+        .logo-img.right {
+            animation: slideInRight 1.5s ease-out 0.6s forwards;
+        }
+        
+        @keyframes slideInLeft {
+            0% { transform: translateX(-200px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            0% { transform: translateX(200px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
         }
         
         .logo {
             font-size: 2.5em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin: 0;
+            position: relative;
         }
         
         nav {
@@ -137,6 +172,77 @@
             font-weight: bold;
             margin: 10px 0;
         }
+
+        /* About Section Styles */
+        #about {
+            padding: 30px 0;
+        }
+
+        #about h2 {
+            color: #2a7f3f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .new-business {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(42, 127, 63, 0.1);
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .new-business h3 {
+            color: #1a5a2c;
+            margin-top: 0;
+        }
+
+        .service-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .service-details > div {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .service-details h4 {
+            color: #2a7f3f;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .offer {
+            background-color: #e8f5e9;
+            border-left: 5px solid #2a7f3f;
+            box-shadow: 0 4px 8px rgba(42, 127, 63, 0.2);
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .offer h3 {
+            color: #1a5a2c;
+            margin-top: 0;
+        }
+
+        #about ul {
+            padding-left: 20px;
+        }
+
+        #about ul li {
+            margin-bottom: 10px;
+        }
         
         footer {
             background-color: #1a5a2c;
@@ -148,33 +254,50 @@
         }
         
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 15px;
+            .service {
+                flex-basis: 100%;
             }
-            
             nav ul li {
                 margin: 5px;
             }
-            
             .review-link {
                 margin-left: 0;
                 margin-top: 5px;
             }
-            
             section {
                 padding: 30px 0;
             }
-            
             .hero {
                 padding: 40px 0;
+            }
+            .service-details > div {
+                flex: 100%;
+            }
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .logo-img {
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Willam Lawn Care</div>
+        <div class="header-content">
+            <img src="https://github.com/willam-lawn-care/main/blob/main/Screenshot%202025-03-27%20224354-Photoroom.png?raw=true" 
+                 alt="Willam Lawn Care Logo" 
+                 class="logo-img left">
+            <div class="logo">Willam Lawn Care</div>
+            <img src="https://github.com/willam-lawn-care/main/blob/main/Screenshot%202025-03-27%20224354-Photoroom.png?raw=true" 
+                 alt="Willam Lawn Care Logo" 
+                 class="logo-img right">
+        </div>
     </header>
     
     <nav>
@@ -225,8 +348,42 @@
         </section>
         
         <section id="about">
-            <h2>About Willam Lawn Care</h2>
-            <p>Willam Lawn Care consists of a few kids, just trying to make money today. We're ready to tackle problems with our amazing team of individuals.</p>
+            <h2>About Our Lawn Service</h2>
+            
+            <div class="new-business">
+                <h3>New Business, Big Commitment</h3>
+                <p>We're just starting out - a team of 6th graders learning the ropes of lawn care in [Your Neighborhood]. While we haven't had many customers yet, we're eager to prove ourselves and build our reputation one lawn at a time.</p>
+            </div>
+
+            <h3>How We Work</h3>
+            <div class="service-details">
+                <div>
+                    <h4>🛠️ Equipment</h4>
+                    <p>Manual push mower (quiet & environmentally friendly)</p>
+                </div>
+                <div>
+                    <h4>💵 Payments</h4>
+                    <p>Cash only (we're working on setting up proper accounts)</p>
+                </div>
+                <div>
+                    <h4>⏰ Availability</h4>
+                    <p>Weekends and after school (4:30pm onwards)</p>
+                </div>
+            </div>
+
+            <div class="offer">
+                <h3>Special Offer for First Customers!</h3>
+                <p>We're offering <strong>$20 for standard-sized lawns</strong> while we build our experience.<br>
+                <small>(Parents supervise all our work)</small></p>
+            </div>
+
+            <h3>Why Choose Us?</h3>
+            <ul>
+                <li><strong>Affordable prices</strong> - We charge less than adult services</li>
+                <li><strong>Eco-friendly</strong> - No loud gas mowers or chemicals</li>
+                <li><strong>Reliable</strong> - We'll communicate clearly about scheduling</li>
+                <li><strong>Support local kids</strong> - Helping us learn responsibility</li>
+            </ul>
         </section>
         
         <section id="team">
