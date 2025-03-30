@@ -280,37 +280,45 @@
     </div>
 
     <script>
+        // Check for existing session on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = localStorage.getItem('currentLawnAdmin');
+            if (currentUser) {
+                loadDashboard(currentUser);
+            }
+        });
+
         // Login check
         function checkLogin() {
             const username = document.getElementById('username-input').value.toLowerCase();
             const password = document.getElementById('password-input').value;
             const errorElement = document.getElementById('error-message');
             
-            // Valid credentials
             const validUsers = {
                 "will": "1678",
                 "lilly": "1678",
-                "zach_the_sigma": "3172"
+                "zach": "3172"
             };
             
             if (validUsers[username] && password === validUsers[username]) {
-                // Successful login
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('admin-dashboard').style.display = 'block';
-                document.getElementById('username-display').textContent = username;
-                document.getElementById('username-display-notes').textContent = username;
-                
-                // Load user's saved notes
-                document.getElementById('user-notes').value = 
-                    localStorage.getItem(`lawnNotes_${username}`) || '';
-                
-                // Reset stats
-                resetDashboardStats();
+                localStorage.setItem('currentLawnAdmin', username);
+                loadDashboard(username);
             } else {
                 errorElement.textContent = "Invalid username or password!";
             }
         }
-        
+
+        // Load dashboard for authenticated user
+        function loadDashboard(username) {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('admin-dashboard').style.display = 'block';
+            document.getElementById('username-display').textContent = username;
+            document.getElementById('username-display-notes').textContent = username;
+            document.getElementById('user-notes').value = 
+                localStorage.getItem(`lawnNotes_${username}`) || '';
+            resetDashboardStats();
+        }
+
         // Save user notes
         function saveUserNotes() {
             const username = document.getElementById('username-display').textContent;
@@ -337,6 +345,7 @@
         
         // Logout
         function logout() {
+            localStorage.removeItem('currentLawnAdmin');
             document.getElementById('login-container').style.display = 'block';
             document.getElementById('admin-dashboard').style.display = 'none';
             document.getElementById('username-input').value = '';
