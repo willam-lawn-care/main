@@ -124,8 +124,8 @@
             margin-left: auto;
         }
         
-        .logout-button {
-            background-color: #e74c3c;
+        .chat-button {
+            background-color: #4285F4; /* Google blue */
             color: white;
             border: none;
             padding: 8px 15px;
@@ -137,6 +137,9 @@
             white-space: nowrap;
             width: auto;
             min-width: 80px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
         
         .homepage-button {
@@ -154,12 +157,31 @@
             min-width: 80px;
         }
         
-        .logout-button:hover {
-            background-color: #c0392b;
+        .logout-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            width: auto;
+            min-width: 80px;
+        }
+        
+        .chat-button:hover {
+            background-color: #3367D6;
         }
         
         .homepage-button:hover {
             background-color: #1a5a2c;
+        }
+        
+        .logout-button:hover {
+            background-color: #c0392b;
         }
         
         .dashboard-content {
@@ -237,14 +259,16 @@
             .welcome-message {
                 font-size: 1.5em;
             }
-            .logout-button,
-            .homepage-button {
-                padding: 6px 12px;
-                font-size: 13px;
-                min-width: 70px;
-            }
             .button-group {
-                gap: 5px;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+            .chat-button,
+            .homepage-button,
+            .logout-button {
+                width: 100%;
+                margin-left: 0;
             }
         }
     </style>
@@ -269,6 +293,7 @@
                     <p class="sub-message">Here's your dashboard overview</p>
                 </div>
                 <div class="button-group">
+                    <a href="https://willam-lawn-care.github.io/ct/" class="chat-button" target="_blank">Admin Chat</a>
                     <button class="homepage-button" onclick="goToHomepage()">Return to Homepage</button>
                     <button class="logout-button" onclick="logout()">Log Out</button>
                 </div>
@@ -326,7 +351,7 @@
             
             const validUsers = {
                 "will": "1678",
-                "lilly": "4475",
+                "lilly": "4475",  // Updated password
                 "zach": "3172"
             };
             
@@ -385,7 +410,7 @@
         
         // Return to homepage
         function goToHomepage() {
-            window.location.href = "index.html"; // Make sure this matches your homepage filename
+            window.location.href = "index.html";
         }
     </script>
 </body>
